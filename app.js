@@ -24,7 +24,7 @@ function agregarAmigo() {
     else {
         nombreAmigo = document.querySelector("input").value;
         amigos.push(nombreAmigo);
-        asignarTextoElemento("listaAmigos", amigos.join('\n'));
+        document.getElementById("listaAmigos").insertAdjacentHTML("beforeend", `<li> ${nombreAmigo}</li>`);
         document.querySelector("input").value = "";
     }
 }
