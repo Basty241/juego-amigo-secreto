@@ -18,10 +18,15 @@ function generarNumero(numeroAmigos) {
 }
 
 function agregarAmigo() {
-    nombreAmigo = document.querySelector("input").value;
-    amigos.push(nombreAmigo);
-    asignarTextoElemento("listaAmigos", amigos.join('\n'));
-    document.querySelector("input").value = "";
+    if (document.querySelector("input").value === "") {
+        alert("Debe ingresar un nombre para agregar a la lista de amigos");
+    }
+    else {
+        nombreAmigo = document.querySelector("input").value;
+        amigos.push(nombreAmigo);
+        asignarTextoElemento("listaAmigos", amigos.join('\n'));
+        document.querySelector("input").value = "";
+    }
 }
 
 
