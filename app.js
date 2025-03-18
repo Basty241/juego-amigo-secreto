@@ -3,26 +3,31 @@
 /*
 Declaración de variables
 */
-let numeroAmigos = 0;
 let amigos = [];
-window.alert('sex')
 
 /*
 Declaración de funciones
 */
-function asignarTextoElemento(elemento, texto) {
-    let elementoHTML = document.querySelector(elemento);
+function asignarTextoElemento(id,texto) {
+    let elementoHTML = document.getElementById(id);
     elementoHTML.innerHTML = texto;
 }
 
 function generarNumero(numeroAmigos) { 
-    return Math.floor(Math.random() * numeroAmigos + 1); 
+    return Math.floor(Math.random() * numeroAmigos); 
 }
 
 function agregarAmigo() {
-    amigos.push(document.getElementById("amigos").value);
-    console.log(amigos);
-    asignarTextoElemento('ul', amigos);
+    nombreAmigo = document.querySelector("input").value;
+    amigos.push(nombreAmigo);
+    asignarTextoElemento("listaAmigos", amigos.join('\n'));
+    document.querySelector("input").value = "";
 }
+
+
 function sortearAmigo() {
+    let numeroAmigos = amigos.length;
+    let amigoSorteado = generarNumero(numeroAmigos);
+    asignarTextoElemento("listaAmigos", "");
+    asignarTextoElemento("resultado", `El amigo secreto sorteado es: ${amigos[amigoSorteado]}`);
 }
